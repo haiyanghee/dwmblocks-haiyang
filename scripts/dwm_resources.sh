@@ -24,7 +24,7 @@ dwm_resources () {
 	#CPUTEMP=$(echo "($CPU1+$CPU2+$CPU3+$CPU4)"/4 |bc)
 
 	#For thinkpad amd cpu:
-	CPUTEMP=$(sensors | grep "Tdie" | awk '{print $2}' | tr -d '°C+' | tr '\n' ' ' )
+	CPUTEMP=$(sensors | grep "Tdie" | awk '{print $2}' | tr -d '°C+')
 
 	percent=$(mpstat | awk '{print $13}' | tr '\n' ' ' | awk '{print (100 - $2 ) "%"}')
 	#percent=$(mpstat | awk '{print $4}' | tr '\n' ' ' | awk '{print $3 "%"}')
@@ -32,7 +32,7 @@ dwm_resources () {
     # Used and total storage in /home (rounded to 1024B)
     STO=$(df -h | grep '/nvme0n1p5' | awk '{printf "%s/%s %s", $3, $2, $5}')
 
-    printf "MEM: %s|CPU: %s, %s°C|STO: %s" "$MEM" "$percent" "$CPUTEMP"  "$STO"
+    printf "MEM:%s|CPU:%s, %s°C|STO:%s" "$MEM" "$percent" "$CPUTEMP"  "$STO"
 }
 
 
