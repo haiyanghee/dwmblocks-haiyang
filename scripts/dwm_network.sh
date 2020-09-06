@@ -1,3 +1,5 @@
+##
+#
 #!/bin/sh
 
 # A dwm_bar function to show the current network connection/SSID, private IP, and public IP
@@ -61,7 +63,7 @@ dwm_network () {
 	#sed "s/down/⛔/;s/up/🌐/" /sys/class/net/e*/operstate
 	ether=$(sed "s/down/❎/;s/up/🌐/" /sys/class/net/e*/operstate)
 	printf "E:$ether|" 
-	wifi=$(sed "s/down/📡/;s/up/📶/" /sys/class/net/w*/operstate)
+	wifi=$(sed "s/down/📡/;s/up/📶 /" /sys/class/net/w*/operstate)
 	printf "W:$wifi"; grep "^\s*w" /proc/net/wireless | awk '{ print  int($3 * 100 / 70) "%" }'
 
 

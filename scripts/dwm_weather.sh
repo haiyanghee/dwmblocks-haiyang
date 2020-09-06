@@ -34,7 +34,8 @@ dwm_weather() {
 		sed '13q;d' "$HOME/.local/share/weatherreport" | grep -o "m\\(-\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print " 🥶",$1 "°","🌞",$2 "°"}' &&
 		#sed '13q;d' "$HOME/.local/share/weatherreport" | grep -o "m\\(-\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print " ",$1 "°","",$2 "°"}' &&
 		echo $stat && echo "$delim"
-
+        #update dwmblocks, weather is signal 5
+        #pkill -RTMIN+5 dwmblocks 
 }
 
 getweather
