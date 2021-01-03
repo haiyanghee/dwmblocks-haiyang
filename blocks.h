@@ -12,7 +12,8 @@ static const Block blocks[] = {
     // display battery
 	{"", "dwm_battery.sh", 10, 2},
     // display volume
-	{"", "dwm_alsa.sh", 0, 3},
+    // will update volume every min
+	{"", "dwm_alsa.sh", 60, 3},
     // update newsboat
 	{"", "dwm_news.sh", 900, 4},
     // update weather and news in every 15 min
