@@ -15,8 +15,9 @@ getweather(){
 		ping -q -c 1 1.1.1.1 >/dev/null &&
 		#curl -s wttr.in/Calgary?format=4 > "$HOME/.local/share/weatherreport"
 		curl -s "zh.wttr.in/$location" > "$HOME/.local/share/weatherreport" 
-		curl -s "zh.wttr.in/$location?format=4" >> "$HOME/.local/share/weatherreport" 
-		notify-send "🌞 Weather" "New weather forecast for today."
+		#curl -s "zh.wttr.in/$location?format=3" >> "$HOME/.local/share/weatherreport" 
+		curl -s zh.wttr.in/$location?format="%l:+%c+%t" >> "$HOME/.local/share/weatherreport" 
+		notify-send "🌞 Weather" "New weather forecast for today." &
 }
 
 dwm_weather() {

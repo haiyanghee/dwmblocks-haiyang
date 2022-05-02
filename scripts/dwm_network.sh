@@ -61,7 +61,8 @@ dwm_network () {
 
 	#echo "E:";
 	#sed "s/down/⛔/;s/up/🌐/" /sys/class/net/e*/operstate
-	ether=$(sed "s/down/❎/;s/up/🌐/" /sys/class/net/e*/operstate)
+	ether=$(sed "s/down/⛔/;s/up/🌐/" /sys/class/net/e*/operstate)
+	#ether=$(sed "s/down/❌/;s/up/🌐/" /sys/class/net/e*/operstate)
 	printf "E:$ether|" 
 	wifi=$(sed "s/down/📡/;s/up/📶 /" /sys/class/net/w*/operstate)
 	printf "W:$wifi"; grep "^\s*w" /proc/net/wireless | awk '{ print  int($3 * 100 / 70) "%" }'

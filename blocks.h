@@ -18,8 +18,8 @@ static const Block blocks[] = {
 	{"", "dwm_news.sh", 900, 4},
     // update weather and news in every 15 min
 	{"", "dwm_weather.sh | tr '\n' ' ' | sed 's/^[ \t]*//;s/[ \t]*$//'", 900, 5},
-    // display date
-	{"", "date \"+%Y-%m-%d %a %I:%M %p\"", 20, 5}};
+    // display date every 5 seconds
+	{"", "date \"+%Y-%m-%d %a %I:%M %p\"", 5, 5}};
 
 // sets delimeter between status commands. NULL character ('\0') means no
 // delimeter.
